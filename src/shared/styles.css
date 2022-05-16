@@ -3,29 +3,45 @@
     --Primary-Orange-Color: #F2B705;
     --Primary-Red-Color: #F20530;
     --Neutral-Green-Color: #05FF15;
+    --Neutral-Orange-Color: #f5cb4c;
     --Neutral-DarkGray-Color: #707070;
 }
 
 .darkGrayColor {
     color: var(--Neutral-DarkGray-Color);
 }
+
+.centerContent {
+    margin: 0 30%;
+}
+
+/*X Icon styling and hover functionality*/
 .xIcon--style {
-    background: var(--Primary-Green-Color);
+    background-color: var(--Primary-Green-Color);
     height: 100px;
     position: relative;
     width: 20px;
     transform: rotate(45deg);
+    border:none;
     }
-.xIcon--style:after {
-    background: var(--Primary-Green-Color);
-    content: "";
-    height: 20px;
-    left: -40px;
+.xIconRight--style {
+    background-color: var(--Primary-Green-Color);
+    height: 100px;
     position: absolute;
-    top: 40px;
-    width: 100px;
+    width: 20px;
+    border: none;
+    transform: rotate(315deg);
 }
 
+.icon--container:hover .xIcon--style {
+    background-color: var(--Neutral-Green-Color);
+}
+
+.icon--container:hover .xIconRight--style {
+    background-color: var(--Neutral-Green-Color);
+}
+
+/*O Icon styling and hover functionality*/
 .oIcon--style {
     width: 100px;
     height: 100px;
@@ -33,6 +49,11 @@
     border-radius: 50%
 }
 
+.oIcon--style:hover {
+    background-color: var(--Neutral-Orange-Color);
+}
+
+/*Play Icon styling and hover functionality*/
 .playIcon--style {
     width: 0;
     height: 0;
@@ -40,4 +61,8 @@
     border-right: 50px solid transparent;
     border-bottom: 100px solid var(--Neutral-Green-Color);
     transform: rotate(90deg);  
+}
+
+.playIcon--style:hover {
+    border-bottom: 100px solid var(--Primary-Green-Color);
 }

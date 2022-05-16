@@ -2,15 +2,17 @@
     text-align: center;
 }
 
-.landingPage--instructions__style{
-
+.landingPage--PickIcon__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .landingPage--iconChoice__container {
     display: flex;
-    justify-content: center;
-    margin: 0 40px;
+    min-width: 300px;
+    max-width: 340px;
 }
 
 .landingPage--iconOption__container {
@@ -18,4 +20,17 @@
     justify-content: center;
     align-content: center;
     display: flex;
+    background-color: white;
+    border: none;
+}
+
+.landingPage--xIcon__hover:hover {background-color: #3e8e41}
+
+.landingPage--iconOption__container:active, .landingPage--Play__style:active {
+    transform: translateY(4px);
+}
+
+.landingPage--Play__style {
+    background-color: white;
+    border: none;
 }
