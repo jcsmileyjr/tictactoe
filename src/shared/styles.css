@@ -1,0 +1,43 @@
+:root {
+    --Primary-Green-Color: #2EA658;
+    --Primary-Orange-Color: #F2B705;
+    --Primary-Red-Color: #F20530;
+    --Neutral-Green-Color: #05FF15;
+    --Neutral-DarkGray-Color: #707070;
+}
+
+.darkGrayColor {
+    color: var(--Neutral-DarkGray-Color);
+}
+.xIcon--style {
+    background: var(--Primary-Green-Color);
+    height: 100px;
+    position: relative;
+    width: 20px;
+    transform: rotate(45deg);
+    }
+.xIcon--style:after {
+    background: var(--Primary-Green-Color);
+    content: "";
+    height: 20px;
+    left: -40px;
+    position: absolute;
+    top: 40px;
+    width: 100px;
+}
+
+.oIcon--style {
+    width: 100px;
+    height: 100px;
+    background: var(--Primary-Orange-Color);
+    border-radius: 50%
+}
+
+.playIcon--style {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid var(--Neutral-Green-Color);
+    transform: rotate(90deg);  
+}

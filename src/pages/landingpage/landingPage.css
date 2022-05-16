@@ -1,3 +1,21 @@
-.landingPage--title__style {
+.landingPage--page__container {
     text-align: center;
+}
+
+.landingPage--instructions__style{
+
+}
+
+
+.landingPage--iconChoice__container {
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
+}
+
+.landingPage--iconOption__container {
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+    display: flex;
 }
