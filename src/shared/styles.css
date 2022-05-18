@@ -18,7 +18,7 @@
 /*X Icon styling and hover functionality*/
 .xIcon--style {
     background-color: var(--Primary-Green-Color);
-    height: 100px;
+    height: 80px;
     position: relative;
     width: 20px;
     transform: rotate(45deg);
@@ -26,7 +26,7 @@
     }
 .xIconRight--style {
     background-color: var(--Primary-Green-Color);
-    height: 100px;
+    height: 80px;
     position: absolute;
     width: 20px;
     border: none;
@@ -43,8 +43,8 @@
 
 /*O Icon styling and hover functionality*/
 .oIcon--style {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: var(--Primary-Orange-Color);
     border-radius: 50%
 }
@@ -57,12 +57,32 @@
 .playIcon--style {
     width: 0;
     height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid var(--Neutral-Green-Color);
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid var(--Neutral-Green-Color);
     transform: rotate(90deg);  
 }
 
 .playIcon--style:hover {
     border-bottom: 100px solid var(--Primary-Green-Color);
+}
+
+@media only screen and (min-width: 400px) {
+    .xIcon--style {
+        height: 70px;
+        }
+    .xIconRight--style {
+        height: 70px;
+    }
+
+    .oIcon--style {
+        width: 70px;
+        height: 70px;
+    }
+
+    .playIcon--style{
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        border-bottom: 60px solid var(--Neutral-Green-Color);
+    }
 }
