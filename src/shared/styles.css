@@ -64,7 +64,7 @@
 }
 
 .playIcon--style:hover {
-    border-bottom: 100px solid var(--Primary-Green-Color);
+    border-bottom: 60px solid var(--Primary-Green-Color);
 }
 
 @media only screen and (min-width: 400px) {
