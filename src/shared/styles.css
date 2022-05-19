@@ -67,6 +67,12 @@
     border-bottom: 60px solid var(--Primary-Green-Color);
 }
 
+.gameboard__restart--style {
+    background-color: var(--Primary-Red-Color);
+    height:25px;
+    width: 25px;
+}
+
 /*Standard page setup*/
 .page__container {
     text-align: center;
