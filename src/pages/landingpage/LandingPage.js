@@ -2,7 +2,7 @@ import "./landingPage.css";
 import "../../shared/styles.css";
 import GameImage from '../../images/game-image.png';
 
-const landingPage = () => {
+const landingPage = ({chooseIcon}) => {
     return (
         <main className="landingPage--page__container">
             <h1 className="landingPage--title__style darkGrayColor">Let's Play <br/>Tic Tac Toe</h1>
@@ -10,11 +10,11 @@ const landingPage = () => {
             <section className="landingPage--PickIcon__container">
                 <h2 className="darkGrayColor">Pick an Icon</h2>
                 <div className="landingPage--iconChoice__container">
-                    <button className="landingPage--iconOption__container icon--container">
+                    <button onClick={()=> chooseIcon("X")} className="landingPage--iconOption__container icon--container">
                         <div className="xIcon--style"></div>
                         <div className="xIconRight--style"></div>
                     </button>
-                    <button className="landingPage--iconOption__container">
+                    <button onClick={()=> chooseIcon("O")} className="landingPage--iconOption__container">
                         <div className="oIcon--style"></div>
                     </button>
                 </div>
