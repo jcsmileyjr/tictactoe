@@ -9,5 +9,11 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+}
+
+@media screen and (min-width:600px) {
+  body {
+    background-color: darkgrey;    
+  }
 }

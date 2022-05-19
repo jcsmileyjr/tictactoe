@@ -15,6 +15,10 @@
     margin: 0 30%;
 }
 
+.primaryBackgroundColor {
+    background-color: white;
+}
+
 /*X Icon styling and hover functionality*/
 .xIcon--style {
     background-color: var(--Primary-Green-Color);
@@ -65,24 +69,4 @@
 
 .playIcon--style:hover {
     border-bottom: 60px solid var(--Primary-Green-Color);
-}
-
-@media only screen and (min-width: 400px) {
-    .xIcon--style {
-        height: 70px;
-        }
-    .xIconRight--style {
-        height: 70px;
-    }
-
-    .oIcon--style {
-        width: 70px;
-        height: 70px;
-    }
-
-    .playIcon--style{
-        border-left: 30px solid transparent;
-        border-right: 30px solid transparent;
-        border-bottom: 60px solid var(--Neutral-Green-Color);
-    }
 }

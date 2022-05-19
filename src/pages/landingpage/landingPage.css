@@ -42,3 +42,29 @@
     
 }
 
+@media only screen and (min-width: 400px) {
+    .landingPage--page__container {
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        max-width: 340px;
+        margin:auto;
+    }
+    
+}
+
+@media screen and (min-width:600px) {
+    .landingPage--page__container {
+        border: 1px solid var(--Neutral-DarkGray-Color);   
+        padding: 10px 40px;
+        margin-top: 20px;     
+    }
+}
+
+@media only screen and (min-width: 1080px) and (max-height: 680px) {
+    .landingPage--promoImage__style {
+        width: 50%;
+        margin: auto;
+    }    
+    
+}
