@@ -1,10 +1,11 @@
 import "./gameBoard.css";
+import "../../shared/styles.css";
 
 
 const GameBoard = ({userIcon}) => {
     return(
-        <main>
-            <p>Hello World</p>
+        <main className="page__container">
+            <h1 className=" gameBoard--title__style darkGrayColor">Tic Tac Toe</h1>
         </main>
     );
 }

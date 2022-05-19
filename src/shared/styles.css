@@ -15,10 +15,6 @@
     margin: 0 30%;
 }
 
-.primaryBackgroundColor {
-    background-color: white;
-}
-
 /*X Icon styling and hover functionality*/
 .xIcon--style {
     background-color: var(--Primary-Green-Color);
@@ -69,4 +65,29 @@
 
 .playIcon--style:hover {
     border-bottom: 60px solid var(--Primary-Green-Color);
+}
+
+/*Standard page setup*/
+.page__container {
+    text-align: center;
+    background-color: white;
+}
+
+@media only screen and (min-width: 400px) {
+    .page__container {
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        max-width: 340px;
+        margin:auto;
+    }
+    
+}
+
+@media screen and (min-width:600px) {
+    .page__container {
+        border: 1px solid var(--Neutral-DarkGray-Color);   
+        padding: 10px 40px;
+        margin-top: 20px;     
+    }
 }
