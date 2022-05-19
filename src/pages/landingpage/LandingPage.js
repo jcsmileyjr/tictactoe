@@ -4,7 +4,7 @@ import GameImage from '../../images/game-image.png';
 
 const landingPage = ({chooseIcon, play}) => {
     return (
-        <main className="landingPage--page__container">
+        <main className="page__container">
             <h1 className="landingPage--title__style darkGrayColor">Let's Play <br/>Tic Tac Toe</h1>
             <img src={GameImage} className="landingPage--promoImage__style" alt="" />
             <section className="landingPage--PickIcon__container">
