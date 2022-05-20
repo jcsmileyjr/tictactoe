@@ -19,12 +19,16 @@ const GameBoard = ({userIcon}) => {
 
     const playerSelectSquare = (spot) => {
         console.log(`Player select spot `, spot);
-        assignSqure(spot, 'player');
+        assignSquare(spot, 'player');
     }
     
-    const assignSqure = (spot, player) => {
+    const assignSquare = (spot, player) => {
         let gameBrackets = gameSpots;
         gameBrackets[spot] = player;
+        setGameSpots(gameBrackets);
+    }
+
+    const computerSelectSqure = () => {
 
     }
 
