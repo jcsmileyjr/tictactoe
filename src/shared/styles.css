@@ -53,6 +53,13 @@
     background-color: var(--Neutral-Orange-Color);
 }
 
+.blank--style {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid var(--Neutral-DarkGray-Color);
+}
+
 /*Play Icon styling and hover functionality*/
 .playIcon--style {
     width: 0;

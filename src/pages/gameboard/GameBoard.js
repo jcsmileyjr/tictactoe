@@ -1,5 +1,6 @@
 import "./gameBoard.css";
 import "../../shared/styles.css";
+import Square from "../../components/square/square";
 
 
 const GameBoard = ({userIcon}) => {
@@ -24,6 +25,23 @@ const GameBoard = ({userIcon}) => {
                     <button>
                         <div className="oIcon--style gameboard__restart--style"></div>
                     </button>
+                </div>
+            </section>
+            <section className="gameboard--container">
+                <div className="gameboard__row--container">
+                    <Square icon="blank"/>
+                    <Square icon="blank"/>
+                    <Square icon="blank"/>
+                </div>
+                <div className="gameboard__row--container">
+                    <Square icon="blank"/>
+                    <Square icon="blank"/>
+                    <Square icon="blank"/>
+                </div>
+                <div className="gameboard__row--container">
+                    <Square icon="blank"/>
+                    <Square icon="blank"/>
+                    <Square icon="blank"/>
                 </div>
             </section>
         </main>

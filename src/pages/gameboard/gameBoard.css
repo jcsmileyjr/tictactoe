@@ -21,3 +21,13 @@
     border: none;
     background-color: white;
 }
+
+.gameboard--container {
+    margin-top: 40px;
+}
+
+.gameboard__row--container {
+    display: flex;
+    justify-content: center;
+    margin: -3px;
+}
