@@ -13,13 +13,15 @@ const GameBoard = ({userIcon}) => {
     const [gameSpots, setGameSpots] = useState([false, false, false,false, false, false,false, false, false]);
 
     const selectSquare = () => {
-        console.log(`User icon is `,userIcon);
+        //console.log(`User icon is `,userIcon);
         return userIcon;
     }
 
     const playerSelectSquare = (spot) => {
-        console.log(`Player select spot `, spot);
+        //console.log(`Player select spot `, spot);
         assignSquare(spot, 'player');
+        computerSelectSquare();
+        //console.table(gameSpots);
     }
     
     const assignSquare = (spot, player) => {
@@ -28,8 +30,15 @@ const GameBoard = ({userIcon}) => {
         setGameSpots(gameBrackets);
     }
 
-    const computerSelectSqure = () => {
-
+    const computerSelectSquare = () => {
+        let randomIndex = Math.floor(Math.random() * 9);
+        console.log(`Random number is `, randomIndex);
+        if(gameSpots[randomIndex] === false){
+            assignSquare(randomIndex, 'computer');
+        }else{
+            console.log(`Re-roll `, randomIndex);
+            computerSelectSquare();
+        }
     }
 
     return(

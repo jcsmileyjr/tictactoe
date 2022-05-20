@@ -2,7 +2,7 @@ import './square.css';
 import '../../shared/styles.css';
 import React, { useState } from "react";
 
-const Square = ({icon = 'blank', updateIcon, playerSelection}) => {
+const Square = ({computer = 'blank', updateIcon, playerSelection}) => {
     const [iconType, setIconType] = useState("blank");
 
     const setIcon = () => {
