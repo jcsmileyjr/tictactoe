@@ -33,7 +33,7 @@ function App() {
       {page === 0 && (
         <LandingPage chooseIcon={userChooseIcon} play={playGame} />
       )}
-      {page === 1 && <GameBoard />}
+      {page === 1 && <GameBoard userIcon={userIcon} />}
     </div>
   );
 }

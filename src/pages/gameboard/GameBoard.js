@@ -1,9 +1,16 @@
 import "./gameBoard.css";
 import "../../shared/styles.css";
 import Square from "../../components/square/square";
-
+import React, { useState } from "react";
 
 const GameBoard = ({userIcon}) => {
+    //const [userIcon, setUserIcon] = useState("");
+
+    const selectSquare = () => {
+        console.log(userIcon);
+        return userIcon;
+    }
+
     return(
         <main className="page__container">
             <h1 className=" gameBoard--title__style darkGrayColor">Tic Tac Toe</h1>
@@ -29,19 +36,19 @@ const GameBoard = ({userIcon}) => {
             </section>
             <section className="gameboard--container">
                 <div className="gameboard__row--container">
-                    <Square icon="blank"/>
-                    <Square icon="blank"/>
-                    <Square icon="blank"/>
+                    <Square icon="blank" updateIcon ={selectSquare} />
+                    <Square icon="blank" updateIcon ={selectSquare} />
+                    <Square icon="blank" updateIcon ={selectSquare} />
                 </div>
                 <div className="gameboard__row--container">
-                    <Square icon="blank"/>
-                    <Square icon="blank"/>
-                    <Square icon="blank"/>
+                    <Square icon="blank" updateIcon ={selectSquare} />
+                    <Square icon="blank" updateIcon ={selectSquare} />
+                    <Square icon="blank" updateIcon ={selectSquare} />
                 </div>
                 <div className="gameboard__row--container">
-                    <Square icon="blank"/>
-                    <Square icon="blank"/>
-                    <Square icon="blank"/>
+                    <Square icon="blank" updateIcon ={selectSquare} />
+                    <Square icon="blank" updateIcon ={selectSquare} />
+                    <Square icon="blank" updateIcon ={selectSquare} />
                 </div>
             </section>
         </main>
