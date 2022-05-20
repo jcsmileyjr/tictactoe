@@ -66,19 +66,19 @@ const GameBoard = ({userIcon}) => {
             </section>
             <section className="gameboard--container">
                 <div className="gameboard__row--container">
+                    <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(0)} />
                     <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(1)} />
                     <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(2)} />
-                    <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(3)} />
                 </div>
                 <div className="gameboard__row--container">
+                    <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(3)} />
                     <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(4)} />
                     <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(5)} />
-                    <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(6)} />
                 </div>
                 <div className="gameboard__row--container">
+                    <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(6)} />
                     <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(7)} />
                     <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(8)} />
-                    <Square icon="blank" updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(9)} />
                 </div>
             </section>
         </main>
