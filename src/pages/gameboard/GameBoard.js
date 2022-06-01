@@ -11,17 +11,11 @@ import React, { useState, useEffect } from "react";
 
 const GameBoard = ({userIcon}) => {
     const [gameSpots, setGameSpots] = useState([false, false, false,false, false, false,false, false, false]);
-    const [squares, setSquares] = useState([{id:0,icon:'blank'}, {id:1,icon:'blank'}, {id:2,icon:'blank'}, {id:3,icon:'blank'}, {id:4,icon:'blank'}, {id:5,icon:'blank'}, {id:6,icon:'blank'}, {id:7,icon:'blank'}, {id:8,icon:'blank'},])
     const [moves, setMoves] = useState(0);
-    
+
     useEffect(()=> {
         setMoves(prevNumber => prevNumber + 1);
     },[moves])
-
-    const selectSquare = (spot) => {
-        //console.log(`User icon is `,userIcon);
-        //return userIcon;
-    }
 
     const playerSelectSquare = (spot) => {
         //console.log(`Player select spot `, spot);
@@ -32,7 +26,8 @@ const GameBoard = ({userIcon}) => {
     
     const assignSquare = (spot, player) => {
         let gameBrackets = gameSpots;
-        gameBrackets[spot] = player;
+        // checks if the player has assign a square. If not the player, then assign the opposite icon as the computer
+        player==='player'?gameBrackets[spot]= userIcon:userIcon === 'X'?gameBrackets[spot]='O':gameBrackets[spot]='X';
         setGameSpots(gameBrackets);
     }
 
@@ -72,19 +67,19 @@ const GameBoard = ({userIcon}) => {
             </section>
             <section className="gameboard--container">
                 <div className="gameboard__row--container">
-                    <Square iconType={gameSpots[0]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(0)} />
-                    <Square iconType={gameSpots[1]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(1)} />
-                    <Square iconType={gameSpots[2]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(2)} />
+                    <Square iconType={gameSpots[0]} playerSelection={()=> playerSelectSquare(0)} />
+                    <Square iconType={gameSpots[1]} playerSelection={()=> playerSelectSquare(1)} />
+                    <Square iconType={gameSpots[2]} playerSelection={()=> playerSelectSquare(2)} />
                 </div>
                 <div className="gameboard__row--container">
-                    <Square iconType={gameSpots[3]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(3)} />
-                    <Square iconType={gameSpots[4]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(4)} />
-                    <Square iconType={gameSpots[5]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(5)} />
+                    <Square iconType={gameSpots[3]} playerSelection={()=> playerSelectSquare(3)} />
+                    <Square iconType={gameSpots[4]} playerSelection={()=> playerSelectSquare(4)} />
+                    <Square iconType={gameSpots[5]} playerSelection={()=> playerSelectSquare(5)} />
                 </div>
                 <div className="gameboard__row--container">
-                    <Square iconType={gameSpots[6]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(6)} />
-                    <Square iconType={gameSpots[7]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(7)} />
-                    <Square iconType={gameSpots[8]} updateIcon ={selectSquare} playerSelection={()=> playerSelectSquare(8)} />
+                    <Square iconType={gameSpots[6]} playerSelection={()=> playerSelectSquare(6)} />
+                    <Square iconType={gameSpots[7]} playerSelection={()=> playerSelectSquare(7)} />
+                    <Square iconType={gameSpots[8]} playerSelection={()=> playerSelectSquare(8)} />
                 </div>
             </section>
         </main>
