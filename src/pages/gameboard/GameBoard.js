@@ -11,6 +11,7 @@ import React, { useState } from "react";
 
 const GameBoard = ({userIcon}) => {
     const [gameSpots, setGameSpots] = useState([false, false, false,false, false, false,false, false, false]);
+    const [squares, setSquares] = useState([{id:0,icon:'blank'}, {id:1,icon:'blank'}, {id:2,icon:'blank'}, {id:3,icon:'blank'}, {id:4,icon:'blank'}, {id:5,icon:'blank'}, {id:6,icon:'blank'}, {id:7,icon:'blank'}, {id:8,icon:'blank'},])
 
     const selectSquare = () => {
         //console.log(`User icon is `,userIcon);
