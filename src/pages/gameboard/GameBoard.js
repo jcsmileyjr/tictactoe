@@ -17,7 +17,12 @@ const GameBoard = ({userIcon}) => {
     const [losses, setLosses] = useState(0);
 
     const eraseBoard = () => {
-        setGameSpots([false, false, false,false, false, false,false, false, false]);
+        const interval = setInterval(() => {
+            setGameSpots([false, false, false,false, false, false,false, false, false]);
+            setMoves(0);
+            clearInterval(interval);
+          }, 300);
+
     }
 
     const winningLogic = (icon) => {
