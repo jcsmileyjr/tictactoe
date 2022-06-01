@@ -16,9 +16,9 @@ const GameBoard = ({userIcon}) => {
     const [ties, setTies] = useState(0);
     const [losses, setLosses] = useState(0);
 
-    // useEffect(()=> {
-    //     setMoves(prevNumber => prevNumber + 1);
-    // },[moves])
+    const eraseBoard = () => {
+        setGameSpots([false, false, false,false, false, false,false, false, false]);
+    }
 
     const winningLogic = (icon) => {
         let win = false;
@@ -51,11 +51,11 @@ const GameBoard = ({userIcon}) => {
         computerSelectSquare();
         setMoves(prevMoves => prevMoves + 1);
         determineWinner();
-        //console.table(gameSpots);
         console.log('Wins ', wins);
         console.log('Losses: ', losses);
         console.log('Ties ', ties);
         console.log('Moves ', moves);
+        //console.table(gameSpots);
     }
     
     /**
@@ -93,14 +93,17 @@ const GameBoard = ({userIcon}) => {
 
         if(didPlayerWin){
             setWin(prevWin => prevWin + 1);
+            eraseBoard();
         }
 
         if(didComputerWin){
             setLosses(prevLosses => prevLosses + 1);
+            eraseBoard();
         }
 
         if(moves === 3 && !didComputerWin && !didPlayerWin){
             setTies(prevTies => prevTies + 1);
+            eraseBoard();
         }
         
     }
