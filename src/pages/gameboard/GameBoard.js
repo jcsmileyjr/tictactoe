@@ -21,7 +21,7 @@ const GameBoard = ({userIcon}) => {
         //console.log(`Player select spot `, spot);
         assignSquare(spot, 'player');
         computerSelectSquare();
-        console.table(gameSpots);
+        //console.table(gameSpots);
     }
     
     const assignSquare = (spot, player) => {
@@ -33,11 +33,11 @@ const GameBoard = ({userIcon}) => {
 
     const computerSelectSquare = () => {
         let randomIndex = Math.floor(Math.random() * 9);
-        console.log(`Random number is `, randomIndex);
+        //console.log(`Random number is `, randomIndex);
         if(gameSpots[randomIndex] === false){
             assignSquare(randomIndex, 'computer');
         }else{
-            console.log(`Re-roll `, randomIndex);
+            //console.log(`Re-roll `, randomIndex);
             computerSelectSquare();
         }
     }
@@ -65,22 +65,14 @@ const GameBoard = ({userIcon}) => {
                     </button>
                 </div>
             </section>
-            <section className="gameboard--container">
-                <div className="gameboard__row--container">
-                    <Square iconType={gameSpots[0]} playerSelection={()=> playerSelectSquare(0)} />
-                    <Square iconType={gameSpots[1]} playerSelection={()=> playerSelectSquare(1)} />
-                    <Square iconType={gameSpots[2]} playerSelection={()=> playerSelectSquare(2)} />
-                </div>
-                <div className="gameboard__row--container">
-                    <Square iconType={gameSpots[3]} playerSelection={()=> playerSelectSquare(3)} />
-                    <Square iconType={gameSpots[4]} playerSelection={()=> playerSelectSquare(4)} />
-                    <Square iconType={gameSpots[5]} playerSelection={()=> playerSelectSquare(5)} />
-                </div>
-                <div className="gameboard__row--container">
-                    <Square iconType={gameSpots[6]} playerSelection={()=> playerSelectSquare(6)} />
-                    <Square iconType={gameSpots[7]} playerSelection={()=> playerSelectSquare(7)} />
-                    <Square iconType={gameSpots[8]} playerSelection={()=> playerSelectSquare(8)} />
-                </div>
+            <section className="gameboard--container">                
+                {gameSpots.map((square, index) => {
+                    return (
+                        <Square key={index} iconType={square} playerSelection={()=> playerSelectSquare(index)} />
+                    )
+                })
+
+                }
             </section>
         </main>
     );
