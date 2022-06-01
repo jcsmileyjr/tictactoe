@@ -12,21 +12,58 @@ import React, { useState, useEffect } from "react";
 const GameBoard = ({userIcon}) => {
     const [gameSpots, setGameSpots] = useState([false, false, false,false, false, false,false, false, false]);
     const [moves, setMoves] = useState(0);
+    const [wins, setWin] = useState(0);
+    const [ties, setTies] = useState(0);
+    const [losses, setLosses] = useState(0);
 
-    useEffect(()=> {
-        setMoves(prevNumber => prevNumber + 1);
-    },[moves])
+    // useEffect(()=> {
+    //     setMoves(prevNumber => prevNumber + 1);
+    // },[moves])
+
+    const winningLogic = (icon) => {
+        let win = false;
+        if(gameSpots[0] === icon && gameSpots[1] === icon && gameSpots[2] === icon){
+            win = true;
+        }else if(gameSpots[3] === icon && gameSpots[4] === icon && gameSpots[5] === icon){
+            win = true;
+        }else if(gameSpots[6] === icon && gameSpots[7] === icon && gameSpots[8] === icon){
+            win = true;
+        }else if(gameSpots[0] === icon && gameSpots[3] === icon && gameSpots[6] === icon){
+            win = true;
+        }else if(gameSpots[1] === icon && gameSpots[4] === icon && gameSpots[7] === icon){
+            win = true;
+        }else if(gameSpots[2] === icon && gameSpots[5] === icon && gameSpots[8] === icon){
+            win = true;
+        }else if(gameSpots[0] === icon && gameSpots[4] === icon && gameSpots[8] === icon){
+            win = true;
+        }else if(gameSpots[2] === icon && gameSpots[4] === icon && gameSpots[6] === icon){
+            win = true;
+        }else {
+            win = false;
+        }
+
+        return win;
+    }
 
     const playerSelectSquare = (spot) => {
         //console.log(`Player select spot `, spot);
         assignSquare(spot, 'player');
         computerSelectSquare();
+        setMoves(prevMoves => prevMoves + 1);
+        determineWinner();
         //console.table(gameSpots);
+        console.log('Wins ', wins);
+        console.log('Losses: ', losses);
+        console.log('Ties ', ties);
+        console.log('Moves ', moves);
     }
     
+    /**
+     * checks if the player has assign a square and if so, assign it the icon choosen. If not the player, 
+     * then assign the opposite icon as the computer.
+     * */
     const assignSquare = (spot, player) => {
         let gameBrackets = gameSpots;
-        // checks if the player has assign a square. If not the player, then assign the opposite icon as the computer
         player==='player'?gameBrackets[spot]= userIcon:userIcon === 'X'?gameBrackets[spot]='O':gameBrackets[spot]='X';
         setGameSpots(gameBrackets);
     }
@@ -41,6 +78,32 @@ const GameBoard = ({userIcon}) => {
             computerSelectSquare();
         }
     }
+    
+    const determineWinner = () => {
+        const didPlayerWin = winningLogic(userIcon);
+    
+        let computer = 'blank';
+        if(userIcon === "X"){
+            computer = "O";
+        }else{
+            computer = "X";
+        }
+
+        const didComputerWin = winningLogic(computer);
+
+        if(didPlayerWin){
+            setWin(prevWin => prevWin + 1);
+        }
+
+        if(didComputerWin){
+            setLosses(prevLosses => prevLosses + 1);
+        }
+
+        if(moves === 3 && !didComputerWin && !didPlayerWin){
+            setTies(prevTies => prevTies + 1);
+        }
+        
+    }
 
     return(
         <main className="page__container">
@@ -48,15 +111,15 @@ const GameBoard = ({userIcon}) => {
             <section className="information--container">
                 <div className="information__wins--container">
                     <p>Wins</p>
-                    <p>5</p>
+                    <p>{wins}</p>
                 </div>
                 <div className="information__ties--container">
                     <p>Ties</p>
-                    <p>3</p>
+                    <p>{ties}</p>
                 </div>
                 <div className="information__losses--container">
                     <p>Losses</p>
-                    <p>2</p>
+                    <p>{losses}</p>
                 </div>
                 <div className="information__restart--container">
                     <p>Restart</p>
