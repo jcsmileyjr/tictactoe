@@ -16,6 +16,14 @@ const GameBoard = ({userIcon}) => {
     const [ties, setTies] = useState(0);
     const [losses, setLosses] = useState(0);
 
+    const restartGame = () => {
+        setGameSpots([false, false, false,false, false, false,false, false, false]);
+        setMoves(0);
+        setWin(0);
+        setTies(0);
+        setLosses(0);
+    }
+
     const eraseBoard = () => {
         const interval = setInterval(() => {
             setGameSpots([false, false, false,false, false, false,false, false, false]);
@@ -122,7 +130,7 @@ const GameBoard = ({userIcon}) => {
                 </div>
                 <div className="information__restart--container">
                     <p>Restart</p>
-                    <button>
+                    <button onClick={() => restartGame()}>
                         <div className="oIcon--style gameboard__restart--style"></div>
                     </button>
                 </div>
