@@ -22,7 +22,6 @@ const GameBoard = ({userIcon}) => {
             setMoves(0);
             clearInterval(interval);
           }, 300);
-
     }
 
     const winningLogic = (icon) => {
@@ -51,16 +50,10 @@ const GameBoard = ({userIcon}) => {
     }
 
     const playerSelectSquare = (spot) => {
-        //console.log(`Player select spot `, spot);
         assignSquare(spot, 'player');
         computerSelectSquare();
         setMoves(prevMoves => prevMoves + 1);
         determineWinner();
-        console.log('Wins ', wins);
-        console.log('Losses: ', losses);
-        console.log('Ties ', ties);
-        console.log('Moves ', moves);
-        //console.table(gameSpots);
     }
     
     /**
@@ -75,11 +68,9 @@ const GameBoard = ({userIcon}) => {
 
     const computerSelectSquare = () => {
         let randomIndex = Math.floor(Math.random() * 9);
-        //console.log(`Random number is `, randomIndex);
         if(gameSpots[randomIndex] === false){
             assignSquare(randomIndex, 'computer');
         }else{
-            //console.log(`Re-roll `, randomIndex);
             computerSelectSquare();
         }
     }
@@ -95,16 +86,16 @@ const GameBoard = ({userIcon}) => {
         }
 
         const didComputerWin = winningLogic(computer);
-
-        if(didPlayerWin){
-            setWin(prevWin => prevWin + 1);
-            eraseBoard();
-        }
-
         if(didComputerWin){
             setLosses(prevLosses => prevLosses + 1);
             eraseBoard();
         }
+
+        if(didPlayerWin && !didComputerWin){
+            setWin(prevWin => prevWin + 1);
+            eraseBoard();
+        }
+
 
         if(moves === 3 && !didComputerWin && !didPlayerWin){
             setTies(prevTies => prevTies + 1);
