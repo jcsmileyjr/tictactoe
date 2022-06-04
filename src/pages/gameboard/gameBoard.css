@@ -26,6 +26,12 @@
     margin-top: 40px;
 }
 
+@media screen and (min-width:600px) {
+    .gameboard--container{
+        margin-bottom:40px;
+    }
+}
+
 .gameboard__row--container {
     display: flex;
     justify-content: center;
