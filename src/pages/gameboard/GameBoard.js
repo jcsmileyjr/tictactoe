@@ -32,6 +32,42 @@ const GameBoard = ({userIcon}) => {
           }, 300);
     }
 
+    const aiLogic = () => {
+        let combo1 = [{spot: gameSpots[0], value:0}, {spot: gameSpots[1], value:1}, {spot: gameSpots[2], value:2}];
+        let combo2 = [{spot: gameSpots[3], value:3}, {spot: gameSpots[4], value:4}, {spot: gameSpots[5], value:5}];
+        let combo3 = [{spot: gameSpots[6], value:6}, {spot: gameSpots[7], value:7}, {spot: gameSpots[8], value:8}];
+        let combo4 = [{spot: gameSpots[0], value:0}, {spot: gameSpots[3], value:3}, {spot: gameSpots[6], value:6}];
+        let combo5 = [{spot: gameSpots[1], value:1}, {spot: gameSpots[4], value:4}, {spot: gameSpots[7], value:7}];
+        let combo6 = [{spot: gameSpots[2], value:2}, {spot: gameSpots[5], value:5}, {spot: gameSpots[8], value:8}];
+        let combo7 = [{spot: gameSpots[0], value:0}, {spot: gameSpots[4], value:4}, {spot: gameSpots[8], value:8}];
+        let combo8 = [{spot: gameSpots[2], value:2}, {spot: gameSpots[4], value:4}, {spot: gameSpots[6], value:6}];
+
+        const combinations = [combo1, combo2, combo3, combo4, combo5, combo6, combo7, combo8];
+        let spotPickedbyAI = 10;
+
+        combinations.forEach((combo, index) => {
+            let count = 0;
+            combo.forEach(combination => {
+                if(combination.spot === userIcon){
+                    count = count + 1;
+                }
+            })
+
+            if(count === 2){
+                const possibleSelection = combo.find(obj => obj.spot === false);
+                console.table(combo);
+                console.log("break on combo ", index);
+                console.log("possibleSelection is ", possibleSelection);
+                if(possibleSelection !== undefined){
+                    spotPickedbyAI = possibleSelection.value;
+                }
+            }
+
+        })
+
+        return spotPickedbyAI;
+    }
+
     const winningLogic = (icon) => {
         let win = false;
         if(gameSpots[0] === icon && gameSpots[1] === icon && gameSpots[2] === icon){
@@ -75,11 +111,17 @@ const GameBoard = ({userIcon}) => {
     }
 
     const computerSelectSquare = () => {
-        let randomIndex = Math.floor(Math.random() * 9);
-        if(gameSpots[randomIndex] === false){
-            assignSquare(randomIndex, 'computer');
+        let aiChoice = aiLogic();
+        console.log("AI choice is", aiChoice);
+        if(aiChoice !== 10){
+            assignSquare(aiChoice, 'computer');
         }else{
-            computerSelectSquare();
+            let randomIndex = Math.floor(Math.random() * 9);
+            if(gameSpots[randomIndex] === false){
+                assignSquare(randomIndex, 'computer');
+            }else{
+                computerSelectSquare();
+            }
         }
     }
     
