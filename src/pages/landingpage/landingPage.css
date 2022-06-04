@@ -35,6 +35,10 @@
     border: none;
 }
 
+.landingPage--promoImage__style {
+    margin: auto;
+}
+
 @media only screen and (max-width: 380px) {
     .landingPage--promoImage__style {
         width: 50%;
