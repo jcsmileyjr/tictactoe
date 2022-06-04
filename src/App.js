@@ -14,12 +14,10 @@ function App() {
   const [page, setPage] = useState(0);
 
   const userChooseIcon = (choice) => {
-    console.log(choice);
     setUserIcon(choice);
   };
 
   const playGame = () => {
-    console.log("Play");
     setPage(1);
   };
 

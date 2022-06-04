@@ -1,7 +1,7 @@
 import "./gameBoard.css";
 import "../../shared/styles.css";
 import Square from "../../components/square/square";
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
 /**Notes
  * When the user picks an spot, the computer will randomly select one of the remaining spots.
@@ -60,9 +60,6 @@ const GameBoard = ({userIcon}) => {
 
             if(count === 2){
                 const possibleSelection = combo.find(obj => obj.spot === false);
-                console.table(combo);
-                console.log("break on combo ", index);
-                console.log("possibleSelection is ", possibleSelection);
                 if(possibleSelection !== undefined){
                     spotPickedbyAI = possibleSelection.value;
                 }
@@ -117,7 +114,6 @@ const GameBoard = ({userIcon}) => {
 
     const computerSelectSquare = () => {
         let aiChoice = aiLogic();
-        console.log("AI choice is", aiChoice);
         if(aiChoice !== 10){
             assignSquare(aiChoice, 'computer');
         }else{
@@ -139,17 +135,17 @@ const GameBoard = ({userIcon}) => {
         }else{
             computer = "X";
         }
+        if(didPlayerWin){
+            setWin(prevWin => prevWin + 1);
+            eraseBoard();
+        }
 
         const didComputerWin = winningLogic(computer);
-        if(didComputerWin){
+        if(didComputerWin && !didPlayerWin){
             setLosses(prevLosses => prevLosses + 1);
             eraseBoard();
         }
 
-        if(didPlayerWin && !didComputerWin){
-            setWin(prevWin => prevWin + 1);
-            eraseBoard();
-        }
 
 
         if(moves === 3 && !didComputerWin && !didPlayerWin){
