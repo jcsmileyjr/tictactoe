@@ -96,6 +96,9 @@ const GameBoard = ({userIcon}) => {
     }
 
     const playerSelectSquare = (spot) => {
+        if(gameSpots[spot] !== false){
+            return;
+        }
         assignSquare(spot, 'player');
         computerSelectSquare();
         setMoves(prevMoves => prevMoves + 1);
