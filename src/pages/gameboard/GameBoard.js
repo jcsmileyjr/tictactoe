@@ -41,11 +41,16 @@ const GameBoard = ({userIcon}) => {
         let combo6 = [{spot: gameSpots[2], value:2}, {spot: gameSpots[5], value:5}, {spot: gameSpots[8], value:8}];
         let combo7 = [{spot: gameSpots[0], value:0}, {spot: gameSpots[4], value:4}, {spot: gameSpots[8], value:8}];
         let combo8 = [{spot: gameSpots[2], value:2}, {spot: gameSpots[4], value:4}, {spot: gameSpots[6], value:6}];
-
         const combinations = [combo1, combo2, combo3, combo4, combo5, combo6, combo7, combo8];
         let spotPickedbyAI = 10;
 
+        if(moves === 0 && gameSpots[4] === false){
+            return spotPickedbyAI = 4;
+        }
+
+
         combinations.forEach((combo, index) => {
+            //if(spotPickedbyAI !== 10) return;
             let count = 0;
             combo.forEach(combination => {
                 if(combination.spot === userIcon){
