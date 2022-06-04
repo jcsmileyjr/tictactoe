@@ -187,6 +187,7 @@ const GameBoard = ({userIcon}) => {
 
                 }
             </section>
+            <section><p>Thank you for playing</p></section>
         </main>
     );
 }
