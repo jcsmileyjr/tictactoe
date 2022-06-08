@@ -10,7 +10,7 @@ import React, { useState } from "react";
  */
 
 function App() {
-  const [userIcon, setUserIcon] = useState(""); // based on user selection from the Landing Page
+  const [userIcon, setUserIcon] = useState("X"); // based on user selection from the Landing Page
   const [page, setPage] = useState(0);
 
   const userChooseIcon = (choice) => {
